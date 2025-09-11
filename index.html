@@ -25,18 +25,11 @@
         }
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #00a859, #008847, #00c875, #00a859);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            background: linear-gradient(135deg, #00a859, #008847);
             color: var(--text-light);
             min-height: 100vh;
             overflow-x: hidden;
             perspective: 1000px;
-        }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
         .container {
             max-width: 1200px;
@@ -118,6 +111,34 @@
             from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
             to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
         }
+        
+        /* Top WhatsApp Button */
+        .whatsapp-float-top {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            top: 30px;
+            right: 30px;
+            background-color: var(--whatsapp);
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.7);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: whatsappPulse 2s infinite;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float-top:hover {
+            transform: scale(1.2) rotateY(180deg);
+        }
+        
+        /* Bottom WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -195,7 +216,7 @@
             perspective: 1000px;
         }
         .deal-card {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 25px;
@@ -208,6 +229,7 @@
             opacity: 0;
             transform-style: preserve-3d;
             transform: translateZ(0);
+            color: var(--text-dark);
         }
         @keyframes slideIn {
             from {
@@ -231,30 +253,32 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--light), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--accent));
         }
         .deal-card:hover {
             transform: translateY(-15px) rotateX(10deg) rotateY(5deg) translateZ(30px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 1);
         }
         .deal-price {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: var(--light);
+            color: var(--primary);
             margin-bottom: 10px;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            text-shadow: none;
         }
         .deal-details {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 20px;
             line-height: 1.4;
-            color: var(--light);
+            color: var(--text-dark);
+            font-weight: 500;
         }
         .deal-validity {
-            font-size: 0.9rem;
-            color: var(--accent);
+            font-size: 1rem;
+            color: var(--secondary);
             margin-bottom: 20px;
+            font-weight: 600;
         }
         .whatsapp-btn {
             display: flex;
@@ -294,7 +318,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         .about-section {
-            background: rgba(0, 136, 71, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 30px;
@@ -304,27 +328,29 @@
             opacity: 0;
             transform-style: preserve-3d;
             transform: translateZ(0);
+            color: var(--text-dark);
         }
         .about-title {
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 20px;
-            color: var(--light);
+            color: var(--primary);
             text-align: center;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            text-shadow: none;
         }
         .about-content {
             font-size: 1.1rem;
             line-height: 1.6;
-            color: var(--light);
+            color: var(--text-dark);
         }
         .contact-section {
-            background: rgba(0, 168, 89, 0.9);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 30px;
             margin: 40px 0;
             text-align: center;
-            color: var(--text-light);
+            color: var(--text-dark);
             animation: fadeIn 1.5s ease forwards;
             opacity: 0;
             animation-delay: 0.6s;
@@ -338,8 +364,8 @@
         .contact-title {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--text-light);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            color: var(--primary);
+            text-shadow: none;
         }
         .contact-info {
             display: flex;
@@ -360,7 +386,7 @@
             transform: translateZ(20px);
         }
         .contact-item i {
-            color: var(--text-light);
+            color: var(--primary);
             font-size: 1.3rem;
         }
         footer {
@@ -379,13 +405,15 @@
             display: flex;
             justify-content: center;
             margin-bottom: 30px;
-            background: rgba(0, 136, 71, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 50px;
             padding: 5px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transform-style: preserve-3d;
             transform: translateZ(20px);
+            overflow-x: auto;
+            flex-wrap: wrap;
         }
         .nav-tab {
             padding: 12px 25px;
@@ -393,10 +421,11 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 600;
-            color: var(--text-light);
+            color: var(--primary);
             position: relative;
             overflow: hidden;
             transform-style: preserve-3d;
+            white-space: nowrap;
         }
         .nav-tab::before {
             content: '';
@@ -405,7 +434,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 168, 89, 0.2);
             transform: translateZ(-1px);
             opacity: 0;
             transition: opacity 0.3s;
@@ -414,8 +443,8 @@
             opacity: 1;
         }
         .nav-tab.active {
-            background: var(--light);
-            color: var(--primary);
+            background: var(--primary);
+            color: var(--text-light);
             transform: translateZ(10px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
@@ -560,6 +589,14 @@
             
             .nav-tab {
                 margin: 5px;
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+            
+            .whatsapp-float-top, .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
             }
         }
     </style>
@@ -570,6 +607,12 @@
     <!-- 3D Floating Elements -->
     <div id="floatingElements"></div>
     
+    <!-- Top WhatsApp Button -->
+    <div class="whatsapp-float-top" onclick="quickWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+    
+    <!-- Bottom WhatsApp Button -->
     <div class="whatsapp-float" onclick="quickWhatsApp()">
         <i class="fab fa-whatsapp"></i>
     </div>
@@ -578,7 +621,7 @@
         <header>
             <div class="logo-container">
                 <div class="logo">
-                    <img src="safaricom-logo.png" alt="Safaricom Logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Safaricom_Logo.svg/1200px-Safaricom_Logo.svg.png" alt="Safaricom Logo">
                 </div>
                 <h1 class="logo-text">AGENT ABIUD</h1>
             </div>
